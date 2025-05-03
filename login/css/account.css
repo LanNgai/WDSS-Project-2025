@@ -1,0 +1,149 @@
+.accountnav {
+    position: relative;
+    float: right;
+}
+
+.dropdownButton {
+
+    color: white;
+    background-color: #333;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdownContent {
+    display: none;
+    position: absolute;
+    right: 0;
+    min-width: 160px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdownContent a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdownContent a:hover {
+    background-color: #f1f1f1;
+}
+.accountnav:hover .dropdownContent {
+    display: block;
+}
+.accountnav:hover .dropdownButton {
+    background-color: lightblue;
+}
+
+nav {
+    background-color: #333;
+    color: white;
+    padding: 0px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+nav a:hover {
+    background-color: lightblue;
+    color: black;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+.profile-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    width: 60%;
+    margin: 100px auto;
+    display: flex;
+    gap: 20px;
+
+}
+.profile-details{
+    justify-content: right;
+}
+.profile-picture {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border: 3px solid #333;
+}
+.profile-name {
+    font-size: 24px;
+    margin: 10px 0;
+}
+.profile-email {
+    color: #555;
+    margin: 5px 0;
+}
+.profile-bio {
+    font-size: 16px;
+    color: #333;
+    margin-top: 20px;
+}
+.overall-profile-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.profile-comments-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 60%;
+    margin: 100px auto;
+}
+
+.profile-comments-container .individual {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-left: 4px solid #04AA6D;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+.profile-comments-container .individual p {
+    margin: 0;
+}
+.comment {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-left: 4px solid #007bff;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+.comment-date {
+    font-size: 12px;
+    color: #777;
+    margin-top: 5px;
+}
+
+#comment-error{
+    padding-top: 500px;
+}
+

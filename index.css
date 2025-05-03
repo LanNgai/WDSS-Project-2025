@@ -1,0 +1,56 @@
+nav {
+    background-color: #333;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Style the links inside the navigation bar */
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+/* Change the color of links on hover */
+nav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Add a color to the active/current link */
+nav a.active {
+    background-color: lightcoral;
+    color: white;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+.box{
+    display: flex;
+    background-color: #fff;
+    gap: 5%;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    width: 60%;
+    max-width: 800px;
+    align-items: center;
+}
+.text{
+    padding: 10px;
+}
+.image {
+    width: 80%;
+    height: auto;
+    border-radius: 10px;
+    margin: 10px;
+}
