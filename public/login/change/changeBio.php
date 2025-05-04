@@ -63,5 +63,4 @@
         <input type="submit" value="submit">
     </form>
 </div>
-</body>
-</html>
+<?php include '../../../templates/footer.php'?>

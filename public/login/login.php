@@ -35,6 +35,5 @@
             <h3>You are already logged in!</h3>
         </div>         <?php } ?>
 
-</body>
-</html>
+<?php include '../../templates/footer.php'?>
 

@@ -8,5 +8,4 @@
     echo "<h1>You have logged out of your account</h1>";
 ?>
 <h2>Go back to the homepage: <a href="../index.php">Click here!</a></h2>
-</body>
-</html>
+<?php include '../../templates/footer.php'?>

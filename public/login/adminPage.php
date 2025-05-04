@@ -48,5 +48,4 @@ $admin = new Admin($id, $result["Username"], $result["Email"], $result["Password
 
 <h1> You are in admin mode! </h1>
 
-</body>
-
+<?php include '../../templates/footer.php'?>

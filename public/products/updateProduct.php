@@ -157,5 +157,4 @@ if (isset($error)) {
         </div>
     </div>
 </form>
-</body>
-</html>
+<?php include '../../templates/footer.php'?>

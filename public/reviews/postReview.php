@@ -39,4 +39,3 @@
     } else {
         die("Invalid request method.");
     }
-?>

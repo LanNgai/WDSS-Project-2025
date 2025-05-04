@@ -73,5 +73,4 @@ $unreviewedProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <input type="submit" value="Submit" id="submit" <?php echo empty($unreviewedProducts) ? 'disabled' : ''; ?>>
             </div>
         </form>
-    </body>
-</html>
+<?php include '../../templates/footer.php'?>

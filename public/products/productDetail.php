@@ -77,5 +77,4 @@ try {
             <p><a href="products.php" id="back">Back to All Products</a></p>
         </div>
     </div>
-</body>
-</html>
+<?php include '../../templates/footer.php'?>

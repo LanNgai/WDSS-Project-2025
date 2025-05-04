@@ -33,4 +33,3 @@ if (isset($_GET["id"])) {
     header("Location: products.php?error=" . urlencode("Invalid or missing product ID."));
     exit;
 }
-?>

@@ -30,5 +30,4 @@
         <input type="submit" value="submit" name="submit">
     </form>
 </div>
-</body>
-</html>
+<?php include '../../../templates/footer.php'?>

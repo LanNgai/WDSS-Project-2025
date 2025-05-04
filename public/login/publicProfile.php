@@ -63,4 +63,4 @@ $user = new User($id, $result["Username"], $result["Email"], $result["Password"]
             </p>
         </div>
     </div>
-
+    <?php include '../../templates/footer.php'?>

@@ -136,5 +136,4 @@ if (isset($error)) {
         <input type="submit" value="Update Review" id="submit" class="submit-button">
     </div>
 </form>
-</body>
-</html>
+<?php include '../../templates/footer.php'?>

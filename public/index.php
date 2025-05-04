@@ -47,5 +47,4 @@
                 <img src="Laila.jpg" alt="Picture of Laila the cat" class="image">
             </div>
         </div>
-    </body>
-</html>
+<?php include '../templates/footer.php'?>
