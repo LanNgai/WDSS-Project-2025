@@ -4,7 +4,7 @@
     require "../../backend/DBconnect.php";
     if ($_SERVER['REQUEST_METHOD'] === 'POST')
     {
-
+        //sanitise and retrieve form inputs
         $productName = clean($_POST['pName']);
         $productType = clean($_POST['category']);
         $manufacturer = clean($_POST['manufacturer']);
