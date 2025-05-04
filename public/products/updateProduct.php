@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once "../../backend/DBconnect.php";
 require_once "../../classes/Product.class.php";
 
@@ -89,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <body>
 <nav>
     <!-- navigation bar -->
-    <?php require "../templates/topnav.php"; ?>
+    <?php require "../../templates/topnav.php"; ?>
 </nav>
 
 <?php

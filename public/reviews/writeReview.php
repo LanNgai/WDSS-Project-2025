@@ -1,5 +1,4 @@
 <?php
-session_start();
 require "../../classes/Product.class.php";
 require "../../backend/DBconnect.php";
 
@@ -16,9 +15,8 @@ $unreviewedProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <?php include '../../templates/header.php'?>
         <link rel="stylesheet" href="css/WriteReview.css">
         <nav>
-            <div class="topnav">
                 <?php require "../../templates/topnav.php"?>
-            </div>
+
         </nav>
         <title>Write a Review</title>
     </head>

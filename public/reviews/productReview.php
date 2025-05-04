@@ -51,11 +51,7 @@ try {
 }
 ?>
 
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php include '../../templates/header.php'?>
         <title><?php echo htmlspecialchars($review->getProductName()); ?> - Review</title>
         <link rel="stylesheet" href="css/productReview.css">
     </head>
@@ -119,13 +115,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comment'])) {
             die("Error saving comment: " . $e->getMessage());
         }
     }
-}
+} ?>
 
 
-// Display comments
-echo "<div class='comment-box'>";
-echo "<strong>Comments:</strong><br>";
+<!--Display comments-->
+<div class='comment-box'>
+<strong>Comments:</strong><br>
 
+<?php
 try {
     $comments = Comment::loadByReviewId($reviewId);
 
@@ -163,11 +160,14 @@ try {
 } catch (Exception $e) {
     echo "<p>Error loading comments: " . $e->getMessage() . "</p>";
 }
+if (!$_SESSION['Active'] && !$_SESSION['IsAdmin']) { ?>
+<p>Please <a href="../../public/login/login.php">login</a> to post a comment.</p>
+<?php } ?>
 
-echo "</div>";
+</div>
 
-// Display comment form only if logged in
-if ($_SESSION['Active'] && !$_SESSION['IsAdmin']) { ?>
+<!--Display comment form only if logged in-->
+<?php if ($_SESSION['Active'] && !$_SESSION['IsAdmin']) { ?>
     <html>
     <form method="post">
         <label for="comment">Write your comment here: </label>
@@ -175,8 +175,7 @@ if ($_SESSION['Active'] && !$_SESSION['IsAdmin']) { ?>
         <textarea id="comment" name="comment" rows="3" cols="50" required></textarea><br>
         <input type="submit" value="Submit Comment">
     </form>
-    </html>
-<?php } elseif (!$_SESSION['Active'] && !$_SESSION['IsAdmin']) {?>
-    <p>Please <a href="../../public/login/login.php">login</a> to post a comment.</p>
-<?php } ?>
+
+<?php include '../../templates/footer.php';
+} ?>
 
