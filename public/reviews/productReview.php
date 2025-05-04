@@ -5,6 +5,7 @@ require "../../classes/Review.class.php";
 require_once "../../classes/products.class.php";
 require "../../backend/DBconnect.php";
 
+// check if ID is valid
 if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
     die("Invalid or missing review ID.");
 }
@@ -12,6 +13,7 @@ if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
 $reviewId = (int)$_GET['id'];
 
 try {
+    //sql query to retrieve from database
     $sql = "SELECT r.*, p.*
             FROM reviews r JOIN products p 
             ON r.ProductID = p.ProductID
@@ -58,11 +60,13 @@ try {
         <link rel="stylesheet" href="css/productReview.css">
     </head>
 <body>
+<!-- navigation bar -->
     <nav>
         <?php require "../../templates/topnav.php"?>
     </nav>
 
     <div class="box">
+        <!-- product image -->
         <div class="thumbnail">
             <?php
             $imagePath = $product->getProductImage() ? '../../data/images/' . $product->getProductImage() : '../../data/images/placeholders/PlaceHolderProduct.png';
@@ -70,6 +74,7 @@ try {
             ?>
         </div>
 
+        <!-- display review details -->
         <div class="review">
             <h2><?php echo $review->getProductName(); ?></h2>
             <p><strong>Category:</strong> <?php echo $review->getProductType(); ?></p>
