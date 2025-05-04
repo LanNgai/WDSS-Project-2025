@@ -3,11 +3,7 @@ session_start();
 require_once "../../backend/DBconnect.php";
 require_once "../../classes/products.class.php";
 
-//if (!isset($_SESSION['admin']) || !$_SESSION['admin']) {
-//    header("Location: ../login/login.php?error=" . urlencode("You must be logged in as an admin to update products."));
-//    exit;
-//}
-
+//check if valid ID
 if (!isset($_GET["id"]) || !is_numeric($_GET["id"])) {
     header("Location: products.php?error=" . urlencode("Invalid or missing product ID."));
     exit;
@@ -17,6 +13,7 @@ $productId = (int)$_GET["id"];
 $product = null;
 
 try {
+    //sql query to retrieve product details
     $sql = "SELECT *
             FROM products WHERE ProductID = :id";
     $stmt = $conn->prepare($sql);
@@ -52,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $productLink = trim($_POST['product_link'] ?? '');
     $productImage = $product->getProductImage();
 
-
+    //check if everything is filled out
     if (empty($productName) || empty($productType) || empty($productDescription) || empty($productManufacturer) || empty($productLink)) {
         $error = "All required fields must be filled.";
     } elseif (!in_array($productType, ['Toy', 'Food', 'Litter', 'Miscellaneous'])) {
@@ -61,6 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $error = "Invalid product link URL.";
     } else {
         try {
+            //sql query to update product details
             $sql = "UPDATE products
                     SET ProductName = :name, ProductType = :type, ProductDescription = :description,
                         ProductManufacturer = :manufacturer, ProductImage = :image, ProductLink = :link
@@ -84,16 +82,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Update Product</title>
+<?php include '../../templates/header.php'?>
+<title>Update Product</title>
     <link rel="stylesheet" href="css/AddProduct.css">
 </head>
 <body>
 <nav>
+    <!-- navigation bar -->
     <?php require "../templates/topnav.php"; ?>
 </nav>
 
@@ -103,6 +98,7 @@ if (isset($error)) {
 }
 ?>
 
+<!-- form filled in with product details -->
 <form method="post">
     <div class="product">
         <h1 id="title">Update Product</h1>
