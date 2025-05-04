@@ -49,13 +49,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $productImage = $product->getProductImage();
 
     //check if everything is filled out
-    if (empty($productName) || empty($productType) || empty($productDescription) || empty($productManufacturer) || empty($productLink)) {
-        $error = "All required fields must be filled.";
-    } elseif (!in_array($productType, ['Toy', 'Food', 'Litter', 'Miscellaneous'])) {
-        $error = "Invalid product type.";
-    } elseif (!filter_var($productLink, FILTER_VALIDATE_URL)) {
-        $error = "Invalid product link URL.";
-    } else {
+    if (empty($productName) || empty($productType) || empty($manufacturer) || empty($description) || empty($productLink)) {
+            throw new Exception("All fields are required.");
+        } else {
         try {
             //sql query to update product details
             $sql = "UPDATE products
