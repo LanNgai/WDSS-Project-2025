@@ -1,8 +1,7 @@
 <?php
     require "../../../templates/header_sessions.php";
-    include "../../../templates/footer.php";
+    require "../../../functions/sanatizeData.php";
     require "../../../backend/DBconnect.php";
-
 
     $user_username = clean($_POST['username']);
     $user_password = clean($_POST['password']);

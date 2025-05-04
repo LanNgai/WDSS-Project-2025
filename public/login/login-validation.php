@@ -1,7 +1,7 @@
 <?php
 if (isset($_POST['submit'])) {
     require "../../templates/header_sessions.php";
-    include "../../templates/footer.php";
+    require "../../functions/sanatizeData.php";
     require "../../backend/DBconnect.php";
 
 

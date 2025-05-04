@@ -6,7 +6,7 @@ require "../../templates/header.php";
 <?php
     require "../../backend/config.php";
     require "login-validation.php";
-    require "../../templates/footer.php";
+    require "../../functions/sanatizeData.php";
     require "../../classes/UserProfile.class.php";
     require "../../classes/Login.class.php";
     require "../../classes/Admin.class.php";

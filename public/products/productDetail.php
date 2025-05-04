@@ -1,7 +1,7 @@
 <?php
 require_once "../../classes/products.class.php";
 require_once "../../templates/header.php";
-require_once "../../templates/footer.php";
+require "../../functions/sanatizeData.php";
 require_once "../../backend/DBconnect.php";
 
 if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {

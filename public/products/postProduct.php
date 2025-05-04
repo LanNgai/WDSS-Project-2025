@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include "../../templates/footer.php";
+    require "../../functions/sanatizeData.php";
     require "../../backend/DBconnect.php";
     if ($_SERVER['REQUEST_METHOD'] === 'POST')
     {

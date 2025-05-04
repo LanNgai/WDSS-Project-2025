@@ -2,7 +2,7 @@
 global $host, $dbname, $password, $user, $options;
 if(isset($_POST["submit"])) {
 
-    include "../../templates/footer.php";
+    require "../../functions/sanatizeData.php";
     require "../../functions/passwordFunctions.php";
 
     $new_user = array(

@@ -1,7 +1,7 @@
 <?php
     session_start();
     require "../../backend/DBconnect.php";
-    include "../../templates/footer.php";
+    require "../../functions/sanatizeData.php";
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $productID = (int)$_POST['productID'];
