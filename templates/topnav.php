@@ -8,6 +8,8 @@
         if ($_SESSION['Active'] && !$_SESSION['IsAdmin']) { ?>
             <a href="http://localhost/WDSS-Project-2025/public/login/displayProfile.php">Profile</a>
 
+        <?php } elseif ($_SESSION['Active'] && $_SESSION['IsAdmin']) { ?>
+            <a href="http://localhost/WDSS-Project-2025/public/login/adminPage.php">Admin</a>
         <?php }
     ?>
 </div>

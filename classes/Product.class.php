@@ -1,4 +1,5 @@
 <?php
+//Product class
 class Product
 {
     private $productID;

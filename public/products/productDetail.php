@@ -1,7 +1,7 @@
 <?php
-require_once "../../classes/products.class.php";
+require_once "../../classes/Product.class.php";
 require_once "../../templates/header.php";
-require "../../functions/sanatizeData.php";
+require "../../functions/sanitizeData.php";
 require_once "../../backend/DBconnect.php";
 
 //check if valid ID

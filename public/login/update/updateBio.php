@@ -1,5 +1,5 @@
 <?php
-require "../../../functions/sanatizeData.php";
+require "../../../functions/sanitizeData.php";
 require "../../../templates/header_sessions.php";
 require "../../../backend/DBconnect.php";
 

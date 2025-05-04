@@ -1,5 +1,5 @@
 <?php
-
+//Comment class
 class Comment
 {
     private $commentID;
@@ -50,6 +50,7 @@ class Comment
 
 
 
+    //Function to save new comments written by ordinary users.
     public static function save(Comment $comment) {
         require'../backend/DBconnect.php';
 
@@ -68,7 +69,7 @@ class Comment
         ]);
     }
 
-    //loads comments
+    //Loads comments from the database which belong to a specific review.
     public static function loadByReviewId($reviewId): array
     {
         require '../../backend/DBconnect.php';
@@ -91,6 +92,7 @@ class Comment
         return $comments;
     }
 
+    //Loads comments from the database which belong to a specific user.
     public static function loadByUserId($UserId): array
     {
         require'../../backend/DBconnect.php';

@@ -1,6 +1,6 @@
 <?php
 require "../../../templates/header_sessions.php";
-require "../../../functions/sanatizeData.php";
+require "../../../functions/sanitizeData.php";
 require "../../../backend/DBconnect.php";
 require "../../../functions/passwordFunctions.php";
 
@@ -28,7 +28,8 @@ if (empty($new_pass) || empty($verify_pass) || empty($old_password)) {
                 $sql = "UPDATE login SET Password = '$hashed_password' WHERE LoginID = '$id'";
                 $stmt = $conn->prepare($sql);
                 $stmt->execute();
-                echo "<h1>Password updated. <br>Click here to go back to <a href='../displayProfile.php'>your profile.</a></h1>";
+                echo "<h1>Password updated.</h1>";
+                include "../../../templates/feedbackLinks.php";
             } else {
                 echo "Password does not meet requirements.";
             }

@@ -1,9 +1,10 @@
 <?php require_once "../../../templates/header.php" ?>
-
+<!-- Used to change the bio of a user -->
 <title>Change Bio</title>
     <link rel="stylesheet" href="css/changeDetails.css">
 </head>
 <body>
+<!-- Navigation Bar -->
 <nav>
     <?php require "../../../templates/changeDetailsTopnav.php" ?>
     <div class="accountnav">
@@ -18,7 +19,7 @@
 </nav>
 <div class="change-details-container">
     <h3>Change Account Details</h3>
-    <!-- TODO: Write php file to handle bio change. -->
+    <!-- Form to change bio -->
     <form class="change-details-form" method="post" action="../update/updateBio.php">
         Change your bio:
         <br>
@@ -27,7 +28,8 @@
             require "../../../backend/DBconnect.php";
             require "../../../classes/UserProfile.class.php";
             require "../../../classes/User.class.php";
-            
+
+            //It gets the user's id and selects the bio text already present from the DB using the id.
             $id = $_SESSION['userLoginID'];
             $sql = "SELECT login.Username, 
                             login.Email, 
@@ -53,7 +55,7 @@
         $bio = $userProfile->getBio();
         ?>
 
-
+        <!-- Textarea for bio -->
         <textarea rows="10" cols="50" name="bio"><?php echo htmlspecialchars($bio); ?></textarea>
         <br><br>
         Your password:

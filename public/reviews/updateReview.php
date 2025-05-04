@@ -2,7 +2,7 @@
 session_start();
 require_once "../../backend/DBconnect.php";
 require_once "../../classes/Review.class.php";
-require_once "../../classes/products.class.php";
+require_once "../../classes/Product.class.php";
 
 if (!isset($_GET["id"]) || !is_numeric($_GET["id"])) {
     header("Location: reviews.php?error=" . urlencode("Invalid or missing review ID."));

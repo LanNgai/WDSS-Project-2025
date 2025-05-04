@@ -1,6 +1,6 @@
 <?php
 session_start();
-require "../../classes/products.class.php";
+require "../../classes/Product.class.php";
 require "../../backend/DBconnect.php";
 
 // retrieve product info

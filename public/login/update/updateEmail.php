@@ -1,6 +1,6 @@
 <?php
 require "../../../templates/header_sessions.php";
-require "../../../functions/sanatizeData.php";
+require "../../../functions/sanitizeData.php";
 require "../../../backend/DBconnect.php";
 
 
@@ -24,7 +24,7 @@ if (!empty($user_email) && !empty($user_password)) {
             $stmt->bindValue(':id', $id, PDO::PARAM_INT);
             $stmt->execute();
             echo "<h1>Email updated successfully!</h1>";
-            echo "<a href='../displayProfile.php'>Profile</a>";
+            include "../../../templates/feedbackLinks.php";
         } catch(PDOException $error) {
             echo $sql . "<br>" . $error->getMessage();
         }

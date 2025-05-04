@@ -1,7 +1,7 @@
 <?php
 require "../../classes/Review.class.php";
 require "../../templates/header.php";
-require "../../functions/sanatizeData.php";
+require "../../functions/sanitizeData.php";
 require "../../backend/DBconnect.php";
 
 $search = '';

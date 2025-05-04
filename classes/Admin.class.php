@@ -1,4 +1,5 @@
 <?php
+//This is the Admin class which inherits from the Login class.
 include_once "Login.class.php";
 class Admin extends Login
 {

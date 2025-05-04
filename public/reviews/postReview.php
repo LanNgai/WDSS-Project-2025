@@ -1,7 +1,7 @@
 <?php
     session_start();
     require "../../backend/DBconnect.php";
-    require "../../functions/sanatizeData.php";
+    require "../../functions/sanitizeData.php";
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // sanitise inputs

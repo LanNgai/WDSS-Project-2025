@@ -1,4 +1,5 @@
 <?php
+//This is the User class which inherits from the Login class.
 include_once "Login.class.php";
 class User extends Login
 {

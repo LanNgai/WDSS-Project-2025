@@ -3,7 +3,7 @@
 <?php
 require "../../backend/config.php";
 include "login-validation.php";
-require "../../functions/sanatizeData.php";
+require "../../functions/sanitizeData.php";
 require "../../classes/UserProfile.class.php";
 require "../../classes/Login.class.php";
 require "../../classes/User.class.php";

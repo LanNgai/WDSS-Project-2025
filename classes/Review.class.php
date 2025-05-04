@@ -1,5 +1,6 @@
 <?php
-require_once "products.class.php";
+//Review class
+require_once "Product.class.php";
 class Review
 {
     private $reviewID;

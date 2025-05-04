@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require "../../functions/sanatizeData.php";
+    require "../../functions/sanitizeData.php";
     require "../../backend/DBconnect.php";
     if ($_SERVER['REQUEST_METHOD'] === 'POST')
     {

@@ -1,5 +1,6 @@
 <?php
 
+//Login class
 class Login
 {
     private $loginID;

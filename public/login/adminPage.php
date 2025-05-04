@@ -1,17 +1,20 @@
 <?php
 require "../../templates/header.php";
-
+//This page is shown to offer feedback to the user that they have signed in as admin.
 ?>
 
 <?php
     require "../../backend/config.php";
     require "login-validation.php";
-    require "../../functions/sanatizeData.php";
+    require "../../functions/sanitizeData.php";
     require "../../classes/UserProfile.class.php";
     require "../../classes/Login.class.php";
     require "../../classes/Admin.class.php";
 
-$id = clean($_GET["id"]);
+    //gets the id used to sign in
+session_start();
+$id = $_SESSION['userLoginID'];
+session_abort();
 try {
     require "../../backend/DBconnect.php";
 
@@ -37,15 +40,32 @@ $admin = new Admin($id, $result["Username"], $result["Email"], $result["Password
 <title>
     <?= $admin->getUsername()."'s Profile" ?>
 </title>
-<link rel="stylesheet" href="css/account2.css">
+<link rel="stylesheet" href="css/account.css">
 </head>
 <body>
 <nav>
-    <?php require_once('../../templates/topnav.php') ?>
+    <?php require_once('../../templates/changeDetailsTopnav.php');
+    require_once ('../../templates/adminChangeNav.php');
+    ?>
 
 </nav>
-<h1> Welcome <?= $admin->getUsername() ?>!  </h1>
 
-<h1> You are in admin mode! </h1>
+<div class="overall-profile-container">
+    <div class="profile-container">
+        <div class="notice">
+            <h1> Welcome <?= $admin->getUsername() ?>!  </h1>
+            <h1> You are in admin mode! </h1>
+        </div>
+        <div class="profile-details">
+            <h3>Your details: </h3>
+            <h2 class="profile-name">
+                Username: <?= $admin->getUsername(); ?>
+            </h2>
+            <h3 class="profile-email">
+                Email Address: <?= $admin->getEmail(); ?>
+            </h3>
+        </div>
+    </div>
+</div>
 
 <?php include '../../templates/footer.php'?>

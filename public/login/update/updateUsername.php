@@ -1,6 +1,6 @@
 <?php
     require "../../../templates/header_sessions.php";
-    require "../../../functions/sanatizeData.php";
+    require "../../../functions/sanitizeData.php";
     require "../../../backend/DBconnect.php";
 
     $user_username = clean($_POST['username']);
@@ -24,8 +24,8 @@
               $stmt->bindValue(':id', $id, PDO::PARAM_INT);
               $stmt->bindValue(':username', $user_username, PDO::PARAM_STR);
               $stmt->execute();
-              echo "<h1>Updated successfully!</h1>";
-              echo "<h1><a href='../displayProfile.php'>Profile</a></h1>";
+              echo "<h1>Username updated successfully!</h1>";
+              include "../../../templates/feedbackLinks.php";
           } catch(PDOException $error) {
               echo $sql . "<br>" . $error->getMessage();
           }

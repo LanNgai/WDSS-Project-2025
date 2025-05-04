@@ -1,25 +1,28 @@
 <?php require_once "../../../templates/header.php" ?>
-
+    <!-- Used to change a user's password -->
 <title>Change Password</title>
     <link rel="stylesheet" href="css/changeDetails.css">
 </head>
 <body>
 <nav>
+    <!-- Navigation Bar -->
     <?php require "../../../templates/changeDetailsTopnav.php" ?>
     <div class="accountnav">
         <button class="dropdownButton">Settings</button>
         <div class="dropdownContent">
             <a href="changeUsername.php">Change Username</a>
             <a href="changeEmail.php">Change Email</a>
-            <a href="changeBio.php">Edit Bio</a>
+            <?php if (!$_SESSION['IsAdmin']) {?>
+                <a href="changeBio.php">Edit Bio</a>
+            <?php }?>
             <a href="../logout.php">Logout</a>
         </div>
     </div>
 </nav>
 <div class="change-details-container">
     <h3>Change Account Details</h3>
+    <!-- Form for the user to change their password. -->
     <form class="change-details-form" method="post" action="../update/updatePassword.php">
-        <!-- TODO: add toggle password visibility -->
         New Password:
         <br>
         <input type="password" name="new-password" required>

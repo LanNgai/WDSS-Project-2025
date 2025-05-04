@@ -38,7 +38,7 @@
 
         <div>
             <?php
-            require_once "../../classes/products.class.php";
+            require_once "../../classes/Product.class.php";
             require_once "../../backend/DBconnect.php";
 
             $search = '';

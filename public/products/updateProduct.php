@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once "../../backend/DBconnect.php";
-require_once "../../classes/products.class.php";
+require_once "../../classes/Product.class.php";
 
 //check if valid ID
 if (!isset($_GET["id"]) || !is_numeric($_GET["id"])) {

@@ -2,7 +2,7 @@
 require "../../templates/header.php";
 require "../../classes/Comment.class.php";
 require "../../classes/Review.class.php";
-require_once "../../classes/products.class.php";
+require_once "../../classes/Product.class.php";
 require "../../backend/DBconnect.php";
 
 // check if ID is valid

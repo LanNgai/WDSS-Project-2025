@@ -1,5 +1,6 @@
 <?php
 
+//User Profile class
 class userProfile
 {
 
