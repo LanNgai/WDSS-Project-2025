@@ -6,7 +6,7 @@ This is our project for web dev server side module which is a part of our  2nd y
 
 # References: 
 ## Lan Ngai (B00159127)
-## Fausta P.
+## Fausta Pavalkytė (B00165884)
 Create post:
 https://youtu.be/V8BEHmzGHwU
 Displaying all posts:
