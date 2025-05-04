@@ -11,6 +11,7 @@ $params = [];
 $reviews = [];
 
 try {
+    // sql query to retrieve review and product details from database
     $sql = "SELECT r.*, p.*
             FROM reviews r JOIN products p 
             ON r.ProductID = p.ProductID";
@@ -54,15 +55,18 @@ if (isset($_POST['submit'])) {
 
 <link rel="stylesheet" href="css/Reviews.css">
 
+    <!-- navigation bar -->
 <nav>
     <?php require "../../templates/topnav.php" ?>
 </nav>
+    <!-- button to write review (only accessible to admin) -->
 <?php if ($_SESSION['IsAdmin']) { ?>
 <div class="add">
     <a href='writeReview.php'>Write a Review</a>
 </div>
 <?php } ?>
 <h1>Product Reviews</h1>
+    <!-- search and filter -->
 <form method="post" class="search">
     <label for="search">Search by Product Name</label>
     <input type="text" id="search" name="search" value="<?php echo htmlspecialchars($search); ?>">
@@ -105,14 +109,16 @@ if (empty($reviews)) {
             $product
         );
 
-
+        //Display for admin
         if ($_SESSION['IsAdmin'] && $_SESSION['Active']) {
             echo "<div class='box'>";
+            // image
             echo "<div class='thumbnail'>";
             $imagePath = $product->getProductImage() ? '../../data/images/' . $product->getProductImage() : '../../data/images/placeholders/PlaceHolderProduct.png';
             echo "<img src='" . $imagePath . "' alt='Product image'>";
             echo "</div>";
 
+            //calculate average rating
             $averageRating = ($review->getQtyRating() + $review->getPriceRating()) / 2;
 
             echo "<div class='review'>";
@@ -125,14 +131,17 @@ if (empty($reviews)) {
             echo "<a href='updateReview.php?id=" . $review->getReviewID().  "' class='view-button'>Update</a>";
             echo "<a href='deleteReview.php?id=" . $review->getReviewID() . "'class='view-button' id='delete'>Delete</a>";
         } else {
+            //Display for average user
             echo "<div class='box'>";
             echo "<div class='thumbnail'>";
             $imagePath = $product->getProductImage() ? '../../data/images/' . $product->getProductImage() : '../../data/images/placeholders/PlaceHolderProduct.png';
             echo "<img src='" . $imagePath . "' alt='Product image'>";
             echo "</div>";
 
+            //calculate average rating
             $averageRating = ($review->getQtyRating() + $review->getPriceRating()) / 2;
 
+            //review details
             echo "<div class='review'>";
             echo "<strong>Category:</strong> " . $review->getProductType() . "<br>";
             echo "<strong>Product Name:</strong> " . $review->getProductName() . "<br>";
