@@ -11,13 +11,16 @@
         $description = clean($_POST['description']);
         $productLink = filter_var(clean($_POST['product_link']), FILTER_SANITIZE_URL);
 
+        //check if everything has been filled out
         if (empty($productName) || empty($productType) || empty($manufacturer) || empty($description) || empty($productLink)) {
             throw new Exception("All fields are required.");
         }
 
+        //sql to add product into database
         $sql = "INSERT INTO products (AdminLoginID, ProductName, ProductType, ProductDescription, ProductManufacturer, ProductImage, ProductLink)
                 VALUES (:adminLoginID, :productName, :productType, :description, :manufacturer, :productImage, :productLink)";
 
+        //execute sql and add to database
         try {
             $stmt = $conn->prepare($sql);
             $stmt->execute([
