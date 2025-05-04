@@ -12,6 +12,7 @@ $reviewId = (int)$_GET["id"];
 $review = null;
 
 try {
+    // retrieve data
     $sql = "SELECT r.*, p.*
             FROM reviews r JOIN products p ON r.ProductID = p.ProductID
             WHERE r.ReviewID = :id";
@@ -51,6 +52,7 @@ try {
     exit;
 }
 
+//check submission info
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $qualityRating = isset($_POST['quality']) ? (int)$_POST['quality'] : 0;
     $priceRating = isset($_POST['price']) ? (int)$_POST['price'] : 0;
@@ -81,16 +83,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<?php include '../../templates/header.php'?>
     <title>Update Review</title>
     <link rel="stylesheet" href="css/WriteReview.css">
 </head>
 <body>
 <nav>
+    <!-- navigation bar -->
     <?php require "../../templates/topnav.php"; ?>
     <div>
         <a href="../../public/login/login.php" style="float: right">Login</a>
@@ -104,6 +103,7 @@ if (isset($error)) {
 }
 ?>
 
+<!-- form filled in with relevant review details -->
 <form method="post" class="review-form">
     <div class="review">
         <h1 id="title">Update Review</h1>
