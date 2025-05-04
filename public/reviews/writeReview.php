@@ -3,6 +3,7 @@ session_start();
 require "../../classes/products.class.php";
 require "../../backend/DBconnect.php";
 
+// retrieve product info
 $sql = "SELECT p.ProductID, p.ProductName, p.ProductType
         FROM products p
         LEFT JOIN reviews r ON p.ProductID = r.ProductID
@@ -12,10 +13,7 @@ $stmt->execute();
 $unreviewedProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<?php include '../../templates/header.php'?>
         <link rel="stylesheet" href="css/WriteReview.css">
         <nav>
             <div class="topnav">
@@ -25,12 +23,14 @@ $unreviewedProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <title>Write a Review</title>
     </head>
     <body>
-        <form method="post" action="postReview.php" enctype="multipart/form-data">
+    <!-- form to write review -->
+    <form method="post" action="postReview.php" enctype="multipart/form-data">
             <div class="review">
                 <h1 id="title">Write a Review</h1>
 
                 <label for="productID">Select a Product</label>
                 <br>
+                <!-- check if there is unreviewed products -->
                 <?php if (empty($unreviewedProducts)): ?>
                     <p>No products available to review.</p>
                     <select id="productID" name="productID" disabled>
