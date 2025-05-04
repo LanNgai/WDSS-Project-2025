@@ -10,6 +10,8 @@
     <nav>
         <?php require "../../templates/topnav.php" ?>
     </nav>
+
+    <!-- button to add product (only seen by admin) -->
     <?php if ($_SESSION['IsAdmin']) { ?>
     <div class="add">
         <a href="addProduct.php">Add a Product</a>
@@ -17,6 +19,7 @@
     <?php } ?>
 
     <h1>Products</h1>
+    <!-- search and filter -->
     <form method="post" class="search">
         <label for="search">Search by Product Name</label>
         <input type="text" id="search" name="search" value="<?php echo isset($search) ? htmlspecialchars($search) : ''; ?>">
@@ -45,6 +48,7 @@
             $products = [];
 
             try {
+                //sql query to retrieve from database
                 $sql = "SELECT *
                         FROM products";
                 $stmt = $conn->prepare($sql);
@@ -103,29 +107,37 @@
                     ?>
                     <div class='box'>
 
-
-                            <?php if ($_SESSION['IsAdmin'] && $_SESSION['Active']) { ?>
-                            <div class='thumbnail'>
+                        <!-- display for admin -->
+                        <?php if ($_SESSION['IsAdmin'] && $_SESSION['Active']) { ?>
+                        <!-- product image -->
+                        <div class='thumbnail'>
                                 <?php
                                 $imagePath = $product->getProductImage() ? '../../data/images/' . $product->getProductImage() : '../../data/images/placeholders/PlaceHolderProduct.png';
                                 ?>
                                 <img src="<?php echo $imagePath; ?>" alt="<?php echo $product->getProductName(); ?>">
                             </div>
-                            <div class='product'>
+
+                    <!-- display product info -->
+                        <div class='product'>
                                 <strong>Category:</strong> <?php echo $product->getProductType(); ?><br>
                                 <strong>Product Name:</strong> <?php echo $product->getProductName(); ?><br>
                                 <strong>Manufacturer:</strong> <?php echo $product->getProductManufacturer(); ?><br>
                                 <a href='productDetail.php?id=<?php echo $product->getProductID(); ?>' class='view-button'>View Details</a>
+                            <!-- button to update -->
                             <a href='updateProduct.php?id=<?php echo htmlspecialchars($product->getProductID()); ?>' class='view-button'>Update</a>
+                            <!-- button to delete -->
                             <a href='deleteProduct.php?id=<?php echo htmlspecialchars($product->getProductID()); ?>' class='view-button' id="delete">Delete</a>
+                            <!-- display for average user -->
                             <?php } else {?>
                                 <div class='thumbnail'>
+                                    <!-- product image -->
                                     <?php
                                     $imagePath = $product->getProductImage() ? '../../data/images/' . $product->getProductImage() : '../../data/images/placeholders/PlaceHolderProduct.png';
                                     ?>
                                     <img src="<?php echo $imagePath; ?>" alt="<?php echo $product->getProductName(); ?>">
                                 </div>
-                                <div class='product'>
+                            <!-- product details -->
+                            <div class='product'>
                                     <strong>Category:</strong> <?php echo $product->getProductType(); ?><br>
                                     <strong>Product Name:</strong> <?php echo $product->getProductName(); ?><br>
                                     <strong>Manufacturer:</strong> <?php echo $product->getProductManufacturer(); ?><br>
