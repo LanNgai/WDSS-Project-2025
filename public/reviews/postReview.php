@@ -4,11 +4,13 @@
     require "../../functions/sanatizeData.php";
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // sanitise inputs
         $productID = (int)$_POST['productID'];
         $qualityRating = (int)$_POST['quality'];
         $priceRating = (int)$_POST['price'];
         $reviewText = clean($_POST['review']);
-        
+
+        //check if empty
         if (empty($productID) || empty($qualityRating) || empty($priceRating) || empty($reviewText)) {
             die("All fields are required.");
         }
@@ -16,6 +18,7 @@
             die("Ratings must be between 1 and 5.");
         }
 
+        //sql query to add to database
         $sql = "INSERT INTO reviews (ProductID, AdminLoginID, QualityRating, PriceRating, ReviewText, DateAndTime)
                 VALUES (:productID, :adminLoginID, :qualityRating, :priceRating, :reviewText, :dateAndTime)";
         try {
