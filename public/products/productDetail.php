@@ -4,6 +4,7 @@ require_once "../../templates/header.php";
 require "../../functions/sanatizeData.php";
 require_once "../../backend/DBconnect.php";
 
+//check if valid ID
 if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
     die("Invalid or missing product ID.");
 }
@@ -11,6 +12,7 @@ if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
 $productID = (int)$_GET['id'];
 
 try {
+    //sql query to fetch from database
     $sql = "SELECT ProductID, ProductName, ProductType, ProductDescription, ProductManufacturer, ProductImage, ProductLink, AdminLoginID
             FROM products
             WHERE ProductID = :id";
@@ -19,6 +21,7 @@ try {
     $stmt->execute();
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
+    //check if product exists
     if (!$row) {
         die("Product not found.");
     }
@@ -47,6 +50,7 @@ try {
     <link rel="stylesheet" href="css/productDetail.css">
 </head>
 <body>
+<!-- navigation bar -->
     <nav>
         <?php require "../../templates/topnav.php" ?>
 
@@ -54,12 +58,14 @@ try {
 
     <div class="box">
         <div class="thumbnail">
+            <!-- get image -->
             <?php
             $imagePath = $product->getProductImage() ? '../../data/images/' . $product->getProductImage() : '../../data/images/placeholders/PlaceHolderProduct.png';
             echo "<img src='" . $imagePath . "' alt='Product Image'>";
             ?>
         </div>
 
+        <!-- display product information from database -->
         <div class="product-info">
             <h2><?php echo $product->getProductName(); ?></h2>
             <p><strong>Category:</strong> <?php echo $product->getProductType(); ?></p>
