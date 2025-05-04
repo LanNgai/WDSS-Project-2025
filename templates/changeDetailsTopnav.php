@@ -1,3 +1,5 @@
+<!--Template for the top navigation bar in the 'change' details pages. -->
+
 <div class="topnav">
     <a href="http://localhost/WDSS-Project-2025/public/index.php">Home</a>
     <a href="http://localhost/WDSS-Project-2025/public/reviews/reviews.php">Reviews</a>

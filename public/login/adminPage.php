@@ -43,6 +43,7 @@ $admin = new Admin($id, $result["Username"], $result["Email"], $result["Password
 <link rel="stylesheet" href="css/account.css">
 </head>
 <body>
+<!--Navigation Bar-->
 <nav>
     <?php require_once('../../templates/changeDetailsTopnav.php');
     require_once ('../../templates/adminChangeNav.php');
@@ -50,6 +51,7 @@ $admin = new Admin($id, $result["Username"], $result["Email"], $result["Password
 
 </nav>
 
+<!--To display the admin's details.-->
 <div class="overall-profile-container">
     <div class="profile-container">
         <div class="notice">

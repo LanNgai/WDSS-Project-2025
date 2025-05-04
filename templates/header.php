@@ -1,4 +1,4 @@
-
+<!--Template for the header.-->
 <!DOCTYPE html>
 <html>
 <head>

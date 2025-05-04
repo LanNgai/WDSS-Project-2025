@@ -1,10 +1,14 @@
 <?php
+//This is to check the login details.
+
+//Checks if the form was submitted.
 if (isset($_POST['submit'])) {
     require "../../templates/header_sessions.php";
     require "../../functions/sanitizeData.php";
     require "../../backend/DBconnect.php";
 
 
+    //Sanitizes user input.
     $user_username = clean($_POST['username']);
     $user_password = clean($_POST['password']);
 
@@ -20,7 +24,10 @@ if (isset($_POST['submit'])) {
         $user_ID = $stmt_for_user->fetch(PDO::FETCH_ASSOC);
         $admin_ID = $stmt_for_admin->fetch(PDO::FETCH_ASSOC);
 
+        //Checks if fields are filled and the password matches with the one stored in the DB.
         if (!empty($user_data) && password_verify($user_password, $user_data['Password'])) {
+
+            //Checks if an average user logged in or if an admin had logged in.
             if($user_data['LoginID'] == $user_ID['UserLoginID']) {
                 $_SESSION['Active'] = true;
                 $_SESSION['IsAdmin'] = false;

@@ -1,4 +1,6 @@
 <?php
+
+//Template for the header but with sessions start.
 session_start();
     if (!$_SESSION['Active']) {
         $_SESSION['IsAdmin'] = false;

@@ -1,4 +1,6 @@
 <?php require "../../templates/header_sessions.php" ?>
+
+<!--This is the feedback page for when one logs out.-->
 <title> Logout </title>
 <link rel="stylesheet" href="../index.css">
 </head>

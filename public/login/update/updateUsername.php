@@ -1,13 +1,17 @@
 <?php
+//PHP to handle the user changing their username.
+
     require "../../../templates/header_sessions.php";
     require "../../../functions/sanitizeData.php";
     require "../../../backend/DBconnect.php";
 
+    //To sanitize user input.
     $user_username = clean($_POST['username']);
     $user_password = clean($_POST['password']);
     $id = $_SESSION['userLoginID'];
 
-    $sql = "SELECT Password FROM login WHERE LoginID = '$id'";
+//Using user's ID to retrieve password from DB
+$sql = "SELECT Password FROM login WHERE LoginID = '$id'";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $database_password = $stmt->fetch(PDO::FETCH_ASSOC);

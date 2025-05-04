@@ -1,4 +1,4 @@
-
+<!--Template for the dropdown menu with options to change account details.-->
 <div class="accountnav">
         <button class="dropdownButton">Settings</button>
         <div class="dropdownContent">

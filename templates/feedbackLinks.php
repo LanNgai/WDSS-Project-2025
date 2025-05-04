@@ -1,4 +1,5 @@
 <?php
+//Template for the links present in the feedback section of the 'change' files.
 if (!$_SESSION['IsAdmin']) {
     echo "<h1>Click here to go back to your <a href='http://localhost/WDSS-Project-2025/public/login/displayProfile.php'>profile</a></h1>";
 } else {
