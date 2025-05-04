@@ -1,6 +1,6 @@
 <?php
 
-
+//To install database with all information using init.sql
 require "config.php";
 
 try {

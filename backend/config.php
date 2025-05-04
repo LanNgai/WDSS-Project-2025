@@ -1,5 +1,5 @@
 <?php
-
+//My database details
 $host = "localhost";
 $dbname = "catsdelight";
 $user = "root";
