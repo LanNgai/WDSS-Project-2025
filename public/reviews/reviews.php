@@ -109,7 +109,7 @@ if (empty($reviews)) {
         if ($_SESSION['IsAdmin'] && $_SESSION['Active']) {
             echo "<div class='box'>";
             echo "<div class='thumbnail'>";
-            $imagePath = $product->getProductImage() ? '../data/images/' . $product->getProductImage() : '../data/images/placeholders/PlaceHolderProduct.png';
+            $imagePath = $product->getProductImage() ? '../../data/images/' . $product->getProductImage() : '../../data/images/placeholders/PlaceHolderProduct.png';
             echo "<img src='" . $imagePath . "' alt='Product image'>";
             echo "</div>";
 
@@ -127,7 +127,7 @@ if (empty($reviews)) {
         } else {
             echo "<div class='box'>";
             echo "<div class='thumbnail'>";
-            $imagePath = $product->getProductImage() ? '../data/images/' . $product->getProductImage() : '../data/images/placeholders/PlaceHolderProduct.png';
+            $imagePath = $product->getProductImage() ? '../../data/images/' . $product->getProductImage() : '../../data/images/placeholders/PlaceHolderProduct.png';
             echo "<img src='" . $imagePath . "' alt='Product image'>";
             echo "</div>";
 

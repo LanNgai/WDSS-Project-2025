@@ -24,10 +24,14 @@
         <br><br>
         <input type="submit" name="submit" value="submit">
     </form>
+    <div>
+        <p>Password must contain 1 capital letter, 1 symbol and 1 number.</p>
+    </div>
     <div class="links-container">
         <a href="../index.php">Go to Home Page</a><br><br>
         <a href="../login/login.php">Go to Login Page</a>
     </div>
+
 </div>
 </body>
 </html>

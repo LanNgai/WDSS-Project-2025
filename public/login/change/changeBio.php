@@ -1,15 +1,11 @@
-<?php require_once "../../../templates/header_sessions.php" ?>
+<?php require_once "../../../templates/header.php" ?>
 
 <title>Change Bio</title>
     <link rel="stylesheet" href="css/changeDetails.css">
 </head>
 <body>
 <nav>
-    <div class="topnav">
-        <a href="../../index.php">Home</a>
-        <a href="../../reviews/reviews.php">Reviews</a>
-        <a href="../../products/products.php">Products</a>
-    </div>
+    <?php require "../../../templates/changeDetailsTopnav.php" ?>
     <div class="accountnav">
         <button class="dropdownButton">Settings</button>
         <div class="dropdownContent">

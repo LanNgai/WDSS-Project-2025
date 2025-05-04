@@ -1,4 +1,4 @@
-<?php require "../templates/header.php" ?>
+<?php require "../../templates/header.php" ?>
     <title>Login Page</title>
     <link rel="stylesheet" href="css/login.css">
 </head>

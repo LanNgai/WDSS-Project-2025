@@ -14,7 +14,7 @@ $stmt->execute();
 $database_password = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!empty($user_email) && !empty($user_password)) {
-    if ($user_password = $database_password) {
+    if (password_verify($user_password, $database_password['Password'])) {
         try {
             $sql = "UPDATE login
                 SET Email = :email
@@ -23,8 +23,8 @@ if (!empty($user_email) && !empty($user_password)) {
             $stmt->bindValue(':email', $user_email);
             $stmt->bindValue(':id', $id, PDO::PARAM_INT);
             $stmt->execute();
-            echo "Email updated successfully!";
-            echo "<a href='..rofile.php'>Profile</a>";
+            echo "<h1>Email updated successfully!</h1>";
+            echo "<a href='../displayProfile.php'>Profile</a>";
         } catch(PDOException $error) {
             echo $sql . "<br>" . $error->getMessage();
         }

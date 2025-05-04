@@ -59,7 +59,7 @@ try {
     </head>
 <body>
     <nav>
-        <?php require "../templates/topnav.php"?>
+        <?php require "../../templates/topnav.php"?>
     </nav>
 
     <div class="box">

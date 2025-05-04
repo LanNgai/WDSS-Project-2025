@@ -16,7 +16,7 @@
     if (empty($user_username) && empty($user_password)) {
         echo "Please fill in all the fields!";
     } else {
-      if ($user_password == $database_password) {
+      if (password_verify($user_password, $database_password['Password'])) {
           try {
               $sql = "UPDATE login
                 SET Username = :username
@@ -25,8 +25,8 @@
               $stmt->bindValue(':id', $id, PDO::PARAM_INT);
               $stmt->bindValue(':username', $user_username, PDO::PARAM_STR);
               $stmt->execute();
-              echo "Updated successfully!";
-              echo "<a href='../displayProfile.php'>Profile</a>";
+              echo "<h1>Updated successfully!</h1>";
+              echo "<h1><a href='../displayProfile.php'>Profile</a></h1>";
           } catch(PDOException $error) {
               echo $sql . "<br>" . $error->getMessage();
           }

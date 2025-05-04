@@ -69,8 +69,9 @@ class Comment
     }
 
     //loads comments
-    public static function loadByReviewId($reviewId) {
-        require'../backend/DBconnect.php';
+    public static function loadByReviewId($reviewId): array
+    {
+        require '../../backend/DBconnect.php';
         $sql = "SELECT * FROM comments WHERE ReviewID = ? ORDER BY DateAndTime DESC";
         $stmt = $conn->prepare($sql);
         $stmt->execute([$reviewId]);
@@ -90,8 +91,9 @@ class Comment
         return $comments;
     }
 
-    public static function loadByUserId($UserId) {
-        require'../backend/DBconnect.php';
+    public static function loadByUserId($UserId): array
+    {
+        require'../../backend/DBconnect.php';
         $sql = "SELECT * FROM comments WHERE UserLoginID = ? ORDER BY DateAndTime DESC";
         $stmt = $conn->prepare($sql);
         $stmt->execute([$UserId]);

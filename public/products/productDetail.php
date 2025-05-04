@@ -55,7 +55,7 @@ try {
     <div class="box">
         <div class="thumbnail">
             <?php
-            $imagePath = $product->getProductImage() ? '../data/images/' . $product->getProductImage() : '../data/images/placeholders/PlaceHolderProduct.png';
+            $imagePath = $product->getProductImage() ? '../../data/images/' . $product->getProductImage() : '../../data/images/placeholders/PlaceHolderProduct.png';
             echo "<img src='" . $imagePath . "' alt='Product Image'>";
             ?>
         </div>

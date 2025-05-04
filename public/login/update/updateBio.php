@@ -12,12 +12,13 @@ $stmt = $conn->prepare($sql);
 $stmt->execute();
 $database_password = $stmt->fetch(PDO::FETCH_ASSOC);
 
-if ($database_password['Password'] == $user_password) {
+if (password_verify($user_password, $database_password['Password'])) {
     if (!empty($user_bio) && !empty($user_password)) {
         $sql = "UPDATE profile SET Bio = '$user_bio' WHERE UserLoginID = '$id'";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
-        echo "Successfully updated your bio!";
+        echo "<h1>Successfully updated your bio!</h1>";
+        echo "<h1>Click here to go back to <a href='../displayProfile.php'>your profile.</a></h1>";
     } else {
         echo "Please fill all the fields.!";
     }

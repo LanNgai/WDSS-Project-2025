@@ -1,4 +1,4 @@
-<?php require "templates/header.php" ?>
+<?php require "../templates/header.php" ?>
         <title> Cat's Delight </title>
         <link rel="stylesheet" href="index.css">
     </head>
@@ -7,8 +7,8 @@
         <nav>
             <div class="topnav">
                 <a href="index.php">Home</a>
-                <a href="reviews/reviews.php">Reviews</a>
-                <a href="products/products.php">Products</a>
+                <a href="http://localhost/WDSS-Project-2025/public/reviews/reviews.php">Reviews</a>
+                <a href="http://localhost/WDSS-Project-2025/public/products/products.php">Products</a>
                 <?php
                 session_start();
                 if ($_SESSION['Active'] && !$_SESSION['IsAdmin']) { ?>

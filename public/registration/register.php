@@ -2,8 +2,8 @@
 global $host, $dbname, $password, $user, $options;
 if(isset($_POST["submit"])) {
 
-    require "../../backend/config.php";
     include "../../templates/footer.php";
+    require "../../functions/passwordFunctions.php";
 
     $new_user = array(
         'username' => clean($_POST["username"]),
@@ -20,23 +20,29 @@ if(isset($_POST["submit"])) {
             die("Passwords do not match.");
         }
         else{
-            try{
-                $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $password, $options);
+            if (password_validation($new_user['password'])) {
+                try{
+                    require "../../backend/DBconnect.php";
 
-                $sql = sprintf("INSERT INTO %s (%s) values (%s)", "user",
-                    implode(", ", array_keys($new_user)),
-                    ":" . implode(", :", array_keys($new_user)));
-                $stmt = $conn->prepare($sql);
-                $stmt->execute($new_user);
+                    $hashed_password = hashPassword($new_user['password']);
+                    $new_user['password'] = $hashed_password;
+                    $sql = sprintf("INSERT INTO %s (%s) values (%s)", "login",
+                        implode(", ", array_keys($new_user)),
+                        ":" . implode(", :", array_keys($new_user)));
+                    $stmt = $conn->prepare($sql);
+                    $stmt->execute($new_user);
 
-                echo "You have successfully registered!";
+                    echo "You have successfully registered!";
 
-                echo "<br>";
-                echo "Click here to <a href='../login/login.php'>Login</a>";
+                    echo "<br>";
+                    echo "Click here to <a href='../login/login.php'>Login</a>";
 
-            }
-            catch(PDOException $e){
-                echo "Connection failed: " . $e->getMessage();
+                }
+                catch(PDOException $e){
+                    echo "Connection failed: " . $e->getMessage();
+                }
+            } else {
+                echo "Password does not meet requirements.";
             }
         }
     }

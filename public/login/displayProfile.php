@@ -61,7 +61,7 @@
 </nav>
     <div class="overall-profile-container">
         <div class="profile-container">
-            <img src="../data/images/placeholders/<?= $userProfile->getPicture(); ?>" alt="Profile Picture" class="profile-picture"/>
+            <img src="../../data/images/profilepic/<?= $userProfile->getPicture(); ?>" alt="Profile Picture" class="profile-picture"/>
             <div class="profile-details">
                 <h2 class="profile-name">
                     <?= $user->getUsername(); ?>

@@ -107,7 +107,7 @@
                             <?php if ($_SESSION['IsAdmin'] && $_SESSION['Active']) { ?>
                             <div class='thumbnail'>
                                 <?php
-                                $imagePath = $product->getProductImage() ? '../data/images/' . $product->getProductImage() : '../data/images/placeholders/PlaceHolderProduct.png';
+                                $imagePath = $product->getProductImage() ? '../../data/images/' . $product->getProductImage() : '../../data/images/placeholders/PlaceHolderProduct.png';
                                 ?>
                                 <img src="<?php echo $imagePath; ?>" alt="<?php echo $product->getProductName(); ?>">
                             </div>
@@ -121,7 +121,7 @@
                             <?php } else {?>
                                 <div class='thumbnail'>
                                     <?php
-                                    $imagePath = $product->getProductImage() ? '../data/images/' . $product->getProductImage() : '../../data/images/placeholders/PlaceHolderProduct.png';
+                                    $imagePath = $product->getProductImage() ? '../../data/images/' . $product->getProductImage() : '../../data/images/placeholders/PlaceHolderProduct.png';
                                     ?>
                                     <img src="<?php echo $imagePath; ?>" alt="<?php echo $product->getProductName(); ?>">
                                 </div>

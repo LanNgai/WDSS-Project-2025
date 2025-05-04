@@ -2,6 +2,7 @@
 require "../../../templates/header_sessions.php";
 include "../../../templates/footer.php";
 require "../../../backend/DBconnect.php";
+require "../../../functions/passwordFunctions.php";
 
 $new_pass = $_POST['new-password'];
 $verify_pass = $_POST['verify-new-password'];
@@ -19,7 +20,7 @@ if (empty($new_pass) || empty($verify_pass) || empty($old_password)) {
     if ($new_pass != $verify_pass) {
         echo "New password did not match.";
     } else {
-        if (!($old_password = $database_password)) {
+        if (!(password_verify($old_password, $database_password['Password']))) {
             echo "Old password is wrong.";
         } else {
             if (password_validation($new_pass)) {
@@ -27,7 +28,7 @@ if (empty($new_pass) || empty($verify_pass) || empty($old_password)) {
                 $sql = "UPDATE login SET Password = '$hashed_password' WHERE LoginID = '$id'";
                 $stmt = $conn->prepare($sql);
                 $stmt->execute();
-                echo "Password updated.";
+                echo "<h1>Password updated. <br>Click here to go back to <a href='../displayProfile.php'>your profile.</a></h1>";
             } else {
                 echo "Password does not meet requirements.";
             }
@@ -35,22 +36,3 @@ if (empty($new_pass) || empty($verify_pass) || empty($old_password)) {
     }
 }
 
-//Function to validate passwords. the password given must have a number, a capital letter and a symbol.
-function password_validation($password)
-{
-    //Check for at least one number
-    $hasNumber = preg_match('/\d/', $password);
-
-    //Check for at least one capital letter
-    $hasCapital = preg_match('/[A-Z]/', $password);
-
-    //Check for at least one symbol
-    $hasSymbol = preg_match('/[^a-zA-Z0-9]/', $password);
-
-    return ($hasNumber && $hasCapital && $hasSymbol);
-}
-
-//Function using php built-in password hash function.
-function hashPassword($password) {
-    return password_hash($password, PASSWORD_DEFAULT);
-}
