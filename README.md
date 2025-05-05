@@ -1,8 +1,13 @@
 # WDSS-Project-2025
 This is our project for web dev server side module which is a part of our  2nd year in TU863 Digital Forensics and Cybersecurity.
+Unit testing is in the Tests directory. 
 
 # Previous Versions
-- 
+- v5.0: https://github.com/LanNgai/Cat-sDelight_version5.0
+- v4.0: https://github.com/LanNgai/Cat-sDelight_version4.0
+- v3.0: https://github.com/LanNgai/Cat-sDelight_version3.0
+- v2.0: https://github.com/LanNgai/Cat-sDelight_version2.0
+- v1.0: https://github.com/LanNgai/Cat-sDelight_version1.0
 
 # References: 
 ## Lan Ngai (B00159127)
@@ -56,6 +61,8 @@ This is our project for web dev server side module which is a part of our  2nd y
 # Statement of Contribution
 
 ## Lan Ngai (B00159127)
+All code was written by me except I looked into w3schools to figure out the dropdown menu in accountnav.
+
 “backend” directory:
 -	config.php
 -	DBconnect.php
@@ -121,6 +128,8 @@ This is our project for web dev server side module which is a part of our  2nd y
 -	unitTesting.php
 
 ## Fausta Pavalkytė (B00165884)
+Fausta used tutorials to learn how to create a post, display all posts, display a single post and writing and reading from text file, before database existed.
+
 “products” directory:
 -	/css/AddProduct.css
 -	/css/productDetail.css
