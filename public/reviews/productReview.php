@@ -127,7 +127,10 @@ try {
     $comments = Comment::loadByReviewId($reviewId);
 
     if (empty($comments)) {
-        echo "<p class='no-comments'>There are no comments yet. Be the first to comment!</p>";
+        echo "<p class='no-comments'>There are no comments yet. ";
+        if (!$_SESSION['IsAdmin']) {
+            echo "Be the first to comment!</p>";
+        }
     } else {
         foreach ($comments as $comment) {
             $userLoginID = $comment->getUserLoginID();

@@ -16,7 +16,7 @@ if (!$_SESSION['Active']) {?>
         <a href="http://localhost/WDSS-Project-2025/public/login/login.php" style="float: right">Login</a>
     </div>
     <?php
-    if (!$_SESSION['IsAdmin']) {?>
+    if (!$_SESSION['IsAdmin'] && $_SESSION['Active']) {?>
         <a href="http://localhost/WDSS-Project-2025/public/login/displayProfile.php">Profile</a>
     <?php } ?>
 <?php } else {?>
