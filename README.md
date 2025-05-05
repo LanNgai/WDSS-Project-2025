@@ -7,11 +7,11 @@ This is our project for web dev server side module which is a part of our  2nd y
 # References: 
 ## Lan Ngai (B00159127)
 /***************************************************************************************
-*    Title: <title of program/source code>
-*    Author: <author(s) names>
-*    Date: <date>
-*    Code version: <code version>
-*    Availability: <where it's located>
+*    Title: How TO - Dropdown Navbar
+*    Author: w3schools
+*    Date: unknown
+*    Code version: unknown
+*    Availability: https://www.w3schools.com/howto/howto_css_dropdown_navbar.asp
 *
 ***************************************************************************************/
 
