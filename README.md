@@ -17,3 +17,5 @@ https://youtu.be/ymF8afbo8Vs
 Writing and reading from text file, before database existed:
 https://youtu.be/R6fRyBSNRBA
 https://youtu.be/Y5L53wClooQ
+
+# Statement of Contribution
