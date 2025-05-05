@@ -1,6 +1,8 @@
 # WDSS-Project-2025
 This is our project for web dev server side module which is a part of our  2nd year in TU863 Digital Forensics and Cybersecurity.
-Unit testing is in the Tests directory. 
+
+- Unit testing is in the "WDSS-Project-2025\Tests\unitTesting.php" directory. 
+- SQL dump of database is in the init.sql file. In the "WDSS-Project-2025\data\init.sql" directory.
 
 # Previous Versions
 - v5.0: https://github.com/LanNgai/Cat-sDelight_version5.0
