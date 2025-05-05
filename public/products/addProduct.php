@@ -64,8 +64,8 @@
 
             <!-- select image -->
             <div class="form-group">
-                <label for="product_image">Product Image*</label> <br>
-                <input type="file" id="product_image" name="product_image" accept="image/*" required class="form-control">
+                <label for="product_image">Product Image (Please enter name of image)*</label> <br>
+                <input placeholder="image.jpg" type="text" id="product_image" name="product_image" required class="form-control">
             </div>
 
             <br>

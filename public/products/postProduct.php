@@ -10,6 +10,7 @@
         $manufacturer = clean($_POST['manufacturer']);
         $description = clean($_POST['description']);
         $productLink = filter_var(clean($_POST['product_link']), FILTER_SANITIZE_URL);
+        $productImage = clean($_POST['product_image']);
 
         //check if everything has been filled out
         if (empty($productName) || empty($productType) || empty($manufacturer) || empty($description) || empty($productLink)) {
@@ -29,7 +30,7 @@
                 ':productType' => $productType,
                 ':description' => $description,
                 ':manufacturer' => $manufacturer,
-                ':productImage' => null,
+                ':productImage' => $productImage,
                 ':productLink' => $productLink
             ]);
             header("Location: products.php?success=Product+added");
