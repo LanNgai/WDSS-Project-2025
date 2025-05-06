@@ -62,6 +62,8 @@ This is our project for web dev server side module which is a part of our  2nd y
 
 # Statement of Contribution
 
+- Percentage value for work distribution: 70% Lan 30% Fausta
+
 ## Lan Ngai (B00159127)
 All code was written by me except I looked into w3schools to figure out the dropdown menu in accountnav.
 
